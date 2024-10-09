@@ -6,7 +6,7 @@
 # path to the sif file, must match the version of this config file
 # if you do not have a sif file available you can get one by running
 # "singularity pull docker://csimkin/miptools:v0.5.0"
-miptools_sif: /home/charlie/miptools_v0.5.0.sif
+miptools_sif: /home/charlie/projects/miptools_v0.5.0.sif
 
 # path to the sample sheet
 input_sample_sheet: /home/charlie/projects/tutorial_data/cherrypicked_sample_sheet.tsv

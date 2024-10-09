@@ -9,9 +9,9 @@ check_for_sif(){
         echo "error: the path to the sif in the config file cannot be found, please check on it"
         exit
     fi
-    if [[ ! $miptools_sif == *"miptools_$mip_version"*  ]]; then
+    if [[ ! $miptools_sif == *"$mip_version"*  ]]; then
         echo ""
-        echo "it looks like you do not have miptools_v0.5.0.sif selected in your config file"
+        echo "it looks like you do not have a version v0.5.0 sif selected in your config file"
         echo "please edit the config file to choose the correct version for this runscript"
         echo "if you do not have access to one you can download it by running the following command"
         echo "singularity pull docker://csimkin/miptools:v0.5.0"
