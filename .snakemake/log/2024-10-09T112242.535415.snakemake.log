@@ -1,0 +1,151 @@
+host: frame
+Building DAG of jobs...
+Using shell: /opt/conda_env/bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                count
+-------------------------------  -------
+all                                    1
+compress_vcf                           1
+concatenate_and_fix_vcf_headers        1
+generate_tables                        1
+run_freebayes                          7
+total                                 11
+
+Select jobs to execute...
+Execute 7 jobs...
+
+[Wed Oct  9 11:22:42 2024]
+localrule run_freebayes:
+    output: /opt/user/stats_and_variant_calling/contig_vcfs/chr5_0.vcf.gz
+    jobid: 8
+    reason: Missing output files: /opt/user/stats_and_variant_calling/contig_vcfs/chr5_0.vcf.gz
+    wildcards: contig=chr5_0
+    resources: tmpdir=/tmp, mem_mb=200000, mem_mib=190735, nodes=16, time_min=5760
+
+[Wed Oct  9 11:22:42 2024]
+localrule run_freebayes:
+    output: /opt/user/stats_and_variant_calling/contig_vcfs/chr7_0.vcf.gz
+    jobid: 9
+    reason: Missing output files: /opt/user/stats_and_variant_calling/contig_vcfs/chr7_0.vcf.gz
+    wildcards: contig=chr7_0
+    resources: tmpdir=/tmp, mem_mb=200000, mem_mib=190735, nodes=16, time_min=5760
+
+[Wed Oct  9 11:22:42 2024]
+localrule run_freebayes:
+    output: /opt/user/stats_and_variant_calling/contig_vcfs/chr13_0.vcf.gz
+    jobid: 4
+    reason: Missing output files: /opt/user/stats_and_variant_calling/contig_vcfs/chr13_0.vcf.gz
+    wildcards: contig=chr13_0
+    resources: tmpdir=/tmp, mem_mb=200000, mem_mib=190735, nodes=16, time_min=5760
+
+[Wed Oct  9 11:22:42 2024]
+localrule run_freebayes:
+    output: /opt/user/stats_and_variant_calling/contig_vcfs/chr8_0.vcf.gz
+    jobid: 10
+    reason: Missing output files: /opt/user/stats_and_variant_calling/contig_vcfs/chr8_0.vcf.gz
+    wildcards: contig=chr8_0
+    resources: tmpdir=/tmp, mem_mb=200000, mem_mib=190735, nodes=16, time_min=5760
+
+[Wed Oct  9 11:22:42 2024]
+localrule run_freebayes:
+    output: /opt/user/stats_and_variant_calling/contig_vcfs/chr14_0.vcf.gz
+    jobid: 5
+    reason: Missing output files: /opt/user/stats_and_variant_calling/contig_vcfs/chr14_0.vcf.gz
+    wildcards: contig=chr14_0
+    resources: tmpdir=/tmp, mem_mb=200000, mem_mib=190735, nodes=16, time_min=5760
+
+[Wed Oct  9 11:22:42 2024]
+localrule run_freebayes:
+    output: /opt/user/stats_and_variant_calling/contig_vcfs/chr14_1.vcf.gz
+    jobid: 6
+    reason: Missing output files: /opt/user/stats_and_variant_calling/contig_vcfs/chr14_1.vcf.gz
+    wildcards: contig=chr14_1
+    resources: tmpdir=/tmp, mem_mb=200000, mem_mib=190735, nodes=16, time_min=5760
+
+[Wed Oct  9 11:22:42 2024]
+localrule run_freebayes:
+    output: /opt/user/stats_and_variant_calling/contig_vcfs/chr4_0.vcf.gz
+    jobid: 7
+    reason: Missing output files: /opt/user/stats_and_variant_calling/contig_vcfs/chr4_0.vcf.gz
+    wildcards: contig=chr4_0
+    resources: tmpdir=/tmp, mem_mb=200000, mem_mib=190735, nodes=16, time_min=5760
+
+[Wed Oct  9 11:22:45 2024]
+Finished job 6.
+1 of 11 steps (9%) done
+[Wed Oct  9 11:22:45 2024]
+Finished job 7.
+2 of 11 steps (18%) done
+[Wed Oct  9 11:22:47 2024]
+Finished job 5.
+3 of 11 steps (27%) done
+[Wed Oct  9 11:22:48 2024]
+Finished job 10.
+4 of 11 steps (36%) done
+[Wed Oct  9 11:22:49 2024]
+Finished job 9.
+5 of 11 steps (45%) done
+[Wed Oct  9 11:22:52 2024]
+Finished job 4.
+6 of 11 steps (55%) done
+[Wed Oct  9 11:22:53 2024]
+Finished job 8.
+7 of 11 steps (64%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Oct  9 11:22:53 2024]
+localrule concatenate_and_fix_vcf_headers:
+    input: /opt/user/stats_and_variant_calling/contig_vcfs/chr13_0.vcf.gz, /opt/user/stats_and_variant_calling/contig_vcfs/chr14_0.vcf.gz, /opt/user/stats_and_variant_calling/contig_vcfs/chr14_1.vcf.gz, /opt/user/stats_and_variant_calling/contig_vcfs/chr4_0.vcf.gz, /opt/user/stats_and_variant_calling/contig_vcfs/chr5_0.vcf.gz, /opt/user/stats_and_variant_calling/contig_vcfs/chr7_0.vcf.gz, /opt/user/stats_and_variant_calling/contig_vcfs/chr8_0.vcf.gz
+    output: /opt/user/stats_and_variant_calling/variants.vcf.gz
+    jobid: 3
+    reason: Missing output files: /opt/user/stats_and_variant_calling/variants.vcf.gz; Input files updated by another job: /opt/user/stats_and_variant_calling/contig_vcfs/chr4_0.vcf.gz, /opt/user/stats_and_variant_calling/contig_vcfs/chr5_0.vcf.gz, /opt/user/stats_and_variant_calling/contig_vcfs/chr8_0.vcf.gz, /opt/user/stats_and_variant_calling/contig_vcfs/chr14_1.vcf.gz, /opt/user/stats_and_variant_calling/contig_vcfs/chr13_0.vcf.gz, /opt/user/stats_and_variant_calling/contig_vcfs/chr14_0.vcf.gz, /opt/user/stats_and_variant_calling/contig_vcfs/chr7_0.vcf.gz
+    resources: tmpdir=/tmp, mem_mb=200000, mem_mib=190735, nodes=16, time_min=5760
+
+[Wed Oct  9 11:22:54 2024]
+Finished job 3.
+8 of 11 steps (73%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Oct  9 11:22:54 2024]
+localrule compress_vcf:
+    input: /opt/user/stats_and_variant_calling/variants.vcf.gz
+    output: /opt/user/stats_and_variant_calling/variants_mutations_only.vcf.gz
+    jobid: 2
+    reason: Missing output files: /opt/user/stats_and_variant_calling/variants_mutations_only.vcf.gz; Input files updated by another job: /opt/user/stats_and_variant_calling/variants.vcf.gz
+    resources: tmpdir=/tmp
+
+[Wed Oct  9 11:22:54 2024]
+Finished job 2.
+9 of 11 steps (82%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Oct  9 11:22:54 2024]
+localrule generate_tables:
+    input: /opt/user/stats_and_variant_calling/variants_mutations_only.vcf.gz
+    output: /opt/user/stats_and_variant_calling/reference_table.csv, /opt/user/stats_and_variant_calling/coverage_table.csv, /opt/user/stats_and_variant_calling/alternate_table.csv
+    jobid: 1
+    reason: Missing output files: /opt/user/stats_and_variant_calling/coverage_table.csv, /opt/user/stats_and_variant_calling/reference_table.csv, /opt/user/stats_and_variant_calling/alternate_table.csv; Input files updated by another job: /opt/user/stats_and_variant_calling/variants_mutations_only.vcf.gz
+    resources: tmpdir=/tmp
+
+[Wed Oct  9 11:23:04 2024]
+Finished job 1.
+10 of 11 steps (91%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Oct  9 11:23:04 2024]
+localrule all:
+    input: /opt/user/stats_and_variant_calling/reference_table.csv, /opt/user/stats_and_variant_calling/coverage_table.csv, /opt/user/stats_and_variant_calling/alternate_table.csv
+    jobid: 0
+    reason: Input files updated by another job: /opt/user/stats_and_variant_calling/coverage_table.csv, /opt/user/stats_and_variant_calling/alternate_table.csv, /opt/user/stats_and_variant_calling/reference_table.csv
+    resources: tmpdir=/tmp
+
+[Wed Oct  9 11:23:04 2024]
+Finished job 0.
+11 of 11 steps (100%) done
+Complete log: .snakemake/log/2024-10-09T112242.535415.snakemake.log

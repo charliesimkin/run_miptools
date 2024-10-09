@@ -1,0 +1,52 @@
+host: frame
+Building DAG of jobs...
+Using shell: /opt/conda_env/bin/bash
+Provided cores: 20
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+all                     1
+copy_params             1
+generate_contigs        1
+total                   3
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Tue Oct  8 21:25:34 2024]
+localrule generate_contigs:
+    input: /opt/user/stats_and_variant_calling/aligned_haplotypes.csv
+    output: /opt/user/stats_and_variant_calling/padded_bams, /opt/user/stats_and_variant_calling/padded_fastqs, /opt/user/stats_and_variant_calling/freebayes_command_dict.yaml
+    jobid: 1
+    reason: Missing output files: /opt/user/stats_and_variant_calling/freebayes_command_dict.yaml
+    resources: tmpdir=/tmp, mem_mb=200000, mem_mib=190735, nodes=16, time_min=5760, log_dir=/opt/user/stats_and_variant_calling/run_settings
+
+[Tue Oct  8 21:25:34 2024]
+localrule copy_params:
+    input: /opt/snakemake/03_generate_contigs.smk, /opt/snakemake/04_run_freebayes.smk, /opt/snakemake/scripts
+    output: /opt/user/stats_and_variant_calling/run_settings/03_generate_contigs.smk, /opt/user/stats_and_variant_calling/run_settings/04_run_freebayes.smk, /opt/user/stats_and_variant_calling/run_settings/scripts
+    jobid: 2
+    reason: Missing output files: /opt/user/stats_and_variant_calling/run_settings/03_generate_contigs.smk; Set of input files has changed since last execution; Code has changed since last execution
+    resources: tmpdir=/tmp, log_dir=/opt/user/stats_and_variant_calling/run_settings
+
+[Tue Oct  8 21:25:34 2024]
+Finished job 2.
+1 of 3 steps (33%) done
+[Tue Oct  8 21:25:39 2024]
+Finished job 1.
+2 of 3 steps (67%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Oct  8 21:25:39 2024]
+localrule all:
+    input: /opt/user/stats_and_variant_calling/freebayes_command_dict.yaml, /opt/user/stats_and_variant_calling/run_settings/03_generate_contigs.smk
+    jobid: 0
+    reason: Input files updated by another job: /opt/user/stats_and_variant_calling/freebayes_command_dict.yaml, /opt/user/stats_and_variant_calling/run_settings/03_generate_contigs.smk
+    resources: tmpdir=/tmp
+
+[Tue Oct  8 21:25:39 2024]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: .snakemake/log/2024-10-08T212534.376063.snakemake.log
