@@ -7,7 +7,7 @@ check_for_sif(){
     if [[ ! -f $miptools_sif ]]; then
         echo ""
         echo "error: the path to the sif in the config file cannot be found, please check on it"
-        exit
+        no_sif=true
     fi
     if [[ ! $miptools_sif == *"$mip_version"*  ]]; then
         echo ""
@@ -15,7 +15,7 @@ check_for_sif(){
         echo "please edit the config file to choose the correct version for this runscript"
         echo "if you do not have access to one you can download it by running the following command"
         echo "singularity pull docker://csimkin/miptools:v0.5.0"
-        exit
+        no_sif=true
     fi
 }
 # import variables from yaml
@@ -60,7 +60,9 @@ main_menu (){
                 ;;
             "run wrangler")
                 eval $(yml config_$mip_version.yaml)
+                no_sif=false
                 check_for_sif
+                if [[ $no_sif = true ]]; then break; fi
                 mkdir -p $(rmwt $wrangler_folder)
                 singularity run \
                     --app wrangler \
@@ -75,7 +77,9 @@ main_menu (){
                 ;;
             "check run stats")
                 eval $(yml config_$mip_version.yaml)
+                no_sif=false
                 check_for_sif
+                if [[ $no_sif = true ]]; then break; fi
                 mkdir -p $(rmwt $variant_calling_folder)
                 singularity run \
                     --app check_run_stats \
@@ -90,7 +94,9 @@ main_menu (){
                 ;;
             "variant calling")
                 eval $(yml config_$mip_version.yaml)
+                no_sif=false
                 check_for_sif
+                if [[ $no_sif = true ]]; then break; fi
                 mkdir -p $(rmwt $variant_calling_folder)
                 singularity run \
                     --app variant_calling \
@@ -106,7 +112,9 @@ main_menu (){
                 ;;
             "start jupyter")
                 eval $(yml config_$mip_version.yaml)
+                no_sif=false
                 check_for_sif
+                if [[ $no_sif = true ]]; then break; fi
                 mkdir -p $(rmwt $variant_calling_folder)
                 mkdir -p $(rmwt $wrangler_folder)
                 if [ -z "$prevalence_metadata" ]; then # don't include prevalence data if user has left it blank
